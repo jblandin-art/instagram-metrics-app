@@ -1,0 +1,15 @@
+{
+  "name": "igmetrics",
+  "version": "1.0.0",
+  "description": "Initialize the project",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josiah Blanding",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^40.0.0"
+  }
+}
