@@ -1,4 +1,11 @@
-const {app, BrowserWindow, ipcMain} = require('electron');
+import path from 'path';
+import {app, BrowserWindow, ipcMain} from 'electron';
+import {fileURLToPath} from 'url';
+const isDev = !app.isPackaged;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 let win;
 function createWindow () {
@@ -8,15 +15,29 @@ function createWindow () {
         autoHideMenuBar: true,
         frame: false,
         transparent: true,
+        backgroundColor: '#00000000', // fully transparent
         webPreferences: {
-        preload: __dirname + '/preload.js'
+        preload: path.join(__dirname, 'preload.js')    
         }
     })
-    win.loadFile('renderer/index.html');
+
+if (isDev) {
+    //load Vite dev server
+    console.log("evaluated true for isDev");
+    win.loadURL('http://localhost:5173');
+    win.setBackgroundColor('rgb(255, 0, 0)'); // fully transparent
+}
+else {
+    //Load the production file (index.html)
+    console.log("evaluated false for isDev");
+    win.loadFile(path.join(__dirname, 'renderer', 'renderer-app',  'index.html'));
+}
 }
 
 app.whenReady().then(() => {
 createWindow()
+win.setBackgroundColor('rgb(255, 0, 0)');
+win.openDevTools();
 })
 
 

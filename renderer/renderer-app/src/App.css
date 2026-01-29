@@ -11,6 +11,7 @@ header {
     -webkit-app-region: drag;
     background-image: url("./concrete-texture.jpg");
     height: 6%;
+    margin-bottom: 20px;
 }
 
 header nav ul {
@@ -51,11 +52,12 @@ h1 {
 html, body {
     overflow: hidden;
     background: transparent;
+    background-color: rgba(0, 0, 0, 0); /* fully transparent */
     width: 1400px;
     height: 700px;
 }
 
-.container {
+#root {
     border: 2px solid rgb(84, 58, 21);
     box-sizing: border-box;
     border-radius: 20px;
@@ -63,6 +65,7 @@ html, body {
     height: 100%;
     width: 100%;
 }
+
 main {
     padding: 20px;
 }
