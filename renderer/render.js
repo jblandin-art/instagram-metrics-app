@@ -1,16 +1,16 @@
 document.getElementById("close-btn").addEventListener("click", () => {
-  window.close();
+  window.windowControls.close();
 });
 
 document.getElementById("minimize-btn").addEventListener("click", () => {
-  window.minimize();
+  window.windowControls.minimize();
 });
 
 document.getElementById("maximize-btn").addEventListener("click", () => {
-  if (window.isMaximized()) {
-    window.unmaximize();
+  if (window.windowControls.isMaximized()) {
+    window.windowControls.unmaximize();
     } else {
-    window.maximize();
+    window.windowControls.maximize();
     }
 });
 

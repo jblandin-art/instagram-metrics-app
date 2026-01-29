@@ -1,4 +1,6 @@
 header {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -7,6 +9,8 @@ header {
     border-bottom: 1px solid rgb(84, 58, 21);
     padding: 2px 20px;
     -webkit-app-region: drag;
+    background-image: url("./concrete-texture.jpg");
+    height: 6%;
 }
 
 header nav ul {
@@ -47,6 +51,8 @@ h1 {
 html, body {
     overflow: hidden;
     background: transparent;
+    width: 1400px;
+    height: 700px;
 }
 
 .container {
@@ -54,8 +60,8 @@ html, body {
     box-sizing: border-box;
     border-radius: 20px;
     background-color: black;
-    min-width: 500px;
-    min-height: 300px;
+    height: 100%;
+    width: 100%;
 }
 main {
     padding: 20px;
@@ -72,4 +78,116 @@ button {
 
 button img {
     display: block;
+}
+
+.top-section {
+    display: flex;
+    width: 95%;
+    height: 42%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.bottom-section {
+    display: flex;
+    width: 95%;
+    height: 45%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.bottom-section > div {
+    height: 100%;
+    border: 2px solid rgb(188, 126, 40);
+    border-radius: 10px;
+    background-image: url("./concrete-texture.jpg");
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+}
+
+.top-section > div {
+    height: 100%;
+    border: 2px solid rgb(188, 126, 40);
+    border-radius: 10px;
+    background-image: url("./concrete-texture.jpg");
+}
+
+.top-section > div:first-child {
+    width: 40%;
+}
+
+.top-section > div:nth-of-type(2) {
+    width: 30%;
+}
+
+.top-section > div:last-child { 
+    width: 25%;
+}
+
+h2 {
+    color: rgb(255, 170, 50);
+    margin-left: 20px;
+    font-size: 2.05rem;
+    margin-bottom: 0px;
+    line-height: .8;
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#spacer {
+    width: 100%;
+    height: 0px;
+    border: 1px solid rgb(38, 38, 38);
+}
+
+#line-break {
+    width: 100%;
+    height: 8px;
+    filter: brightness(0.7);
+    margin-top: 0px;
+}
+
+::selection {
+    background: rgba(255, 170, 50, 0.3);
+}
+
+p {
+    margin-left: 15px;
+    font-size: 1.75rem;
+    color:rgb(223, 220, 216)
+}
+
+.secondary-p {
+    font-size: 1.1rem;
+}
+
+#standing-picture {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    transform: translateY(10px);
+}
+
+#standing-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    color: rgb(150, 150, 150);
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
 }

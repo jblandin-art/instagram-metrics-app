@@ -1,14 +1,42 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, ipcMain} = require('electron');
 
+let win;
 function createWindow () {
-    const window = new BrowserWindow({
-        width: 800,
-        height: 600,
+    win = new BrowserWindow({
+        width: 1400,
+        height: 700,
         autoHideMenuBar: true,
         frame: false,
         transparent: true,
+        webPreferences: {
+        preload: __dirname + '/preload.js'
+        }
     })
-    window.loadFile('renderer/index.html');
+    win.loadFile('renderer/index.html');
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+createWindow()
+})
+
+
+ipcMain.on("minimize-window", () => {
+    win.minimize();
+})
+
+ipcMain.on("is-maximized", () => {
+    return win.isMaximized();
+})
+
+ipcMain.on("maximize-window", () => {
+    if(win.isMaximized()) {
+        win.unmaximize();
+    }
+    else {
+        win.maximize();
+    }
+})
+
+ipcMain.on("close-window", () => {
+    app.quit();
+})
