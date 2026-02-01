@@ -34,7 +34,7 @@ function App() {
             <div className="data-section">
                 <div>
                     <h2>Connection Metrics</h2>
-                    <img className="line-break" src="./line.png"/>
+                    <img className="line-break" src="../line.png"/>
                     <p>90% of the people you follow, are following you back. ✅</p>
                     <p className="secondary-p">You are following back 50% of the people that follow you.</p>
                 </div> 
@@ -42,7 +42,7 @@ function App() {
             <div className="data-section">
                 <div>
                     <h2>Overall Metrics</h2>
-                    <img className="line-break" src="./line.png"/>
+                    <img className="line-break" src="../line.png"/>
                     <p>2595 Followers</p>
                     <p>736 Following</p>
                 </div> 
@@ -50,9 +50,9 @@ function App() {
             <div className="data-section">
                 <div>
                     <h2>Standing</h2>
-                    <img className="line-break" src="./line.png"/>
+                    <img className="line-break" src="../line.png"/>
                     <div id="standing-container">
-                    <img src="./thumbs-up.png" id="standing-picture"/>
+                    <img src="../thumbs-up.png" id="standing-picture"/>
                     </div>
                 </div> 
             </div>

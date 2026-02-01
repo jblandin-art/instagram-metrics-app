@@ -1,6 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+
+function importData() {
+//Dev data. 
+
+
+}
+
+function getFollowers() {
+
+}
+
 function App() {
     return (
         <div className="container">
@@ -73,5 +84,3 @@ function App() {
     );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);

@@ -9,7 +9,7 @@ header {
     border-bottom: 1px solid rgb(84, 58, 21);
     padding: 2px 20px;
     -webkit-app-region: drag;
-    background-image: url("./concrete-texture.jpg");
+    background-image: url("../concrete-texture.jpg");
     height: 6%;
     margin-bottom: 20px;
 }
@@ -107,7 +107,7 @@ button img {
     height: 100%;
     border: 2px solid rgb(188, 126, 40);
     border-radius: 10px;
-    background-image: url("./concrete-texture.jpg");
+    background-image: url("../concrete-texture.jpg");
     width: 100%;
 }
 
@@ -120,7 +120,7 @@ main {
     height: 100%;
     border: 2px solid rgb(188, 126, 40);
     border-radius: 10px;
-    background-image: url("./concrete-texture.jpg");
+    background-image: url("../concrete-texture.jpg");
 }
 
 .top-section > div:first-child {

@@ -24,8 +24,9 @@ function createWindow () {
 if (isDev) {
     //load Vite dev server
     console.log("evaluated true for isDev");
-    win.loadURL('http://localhost:5173');
-    win.setBackgroundColor('rgb(255, 0, 0)'); // fully transparent
+    win.loadFile("renderer/renderer-app/dist/index.html");
+    //win.loadFile("renderer/index-pre-react.html");
+   // win.loadURL('http://localhost:5173');
 }
 else {
     //Load the production file (index.html)
@@ -36,8 +37,6 @@ else {
 
 app.whenReady().then(() => {
 createWindow()
-win.setBackgroundColor('rgb(255, 0, 0)');
-win.openDevTools();
 })
 
 
