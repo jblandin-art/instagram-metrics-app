@@ -64,6 +64,7 @@ html, body {
     background-color: black;
     height: 100%;
     width: 100%;
+    position: relative;
 }
 
 main {
@@ -86,7 +87,7 @@ button img {
 .top-section {
     display: flex;
     width: 95%;
-    height: 42%;
+    height: 38%;
     margin: auto;
     align-items: center;
     justify-content: space-between;
@@ -164,6 +165,7 @@ h2 {
 
 p {
     margin-left: 15px;
+    margin-right: 15px;
     font-size: 1.75rem;
     color:rgb(223, 220, 216)
 }
@@ -191,6 +193,163 @@ footer {
 }
 
 footer p {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+    font-size: 0.75rem;                 /* smaller to fit tight space */
+    color: rgba(150, 150, 150, 0.8);    /* slightly lighter and softer */
+    text-align: center;                  /* centered for balance */
+    margin: 0;                           /* remove default margins */
+    padding: 5px 0;                      /* small padding for breathing room */
+    position: absolute;                  /* stick to bottom */
+    bottom: 5px;                         /* minimal distance from bottom edge */
+    width: 100%;                         /* spans full footer width */
+    line-height: 1;                      /* compact line height */
+    pointer-events: none;                /* won't interfere with clicks if footer overlaps content */
+}
+
+.import-button {
+    background-color: rgb(26, 26, 26); /* matches your window buttons background */
+    color: rgb(255, 170, 50); /* matches h1 highlight */
+    border: 2px solid rgb(84, 58, 21); /* matches your container border */
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    -webkit-app-region: no-drag; /* safe for Electron draggable areas */
+    margin: 0 auto;
+}
+
+.import-button:hover {
+    background-color: rgb(40, 40, 40);
+    border-color: rgb(255, 170, 50);
+}
+
+.import-button:active {
+    background-color: rgb(20, 20, 20);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+strong {
+    color: rgb(255, 170, 50); /* matches your h1/h2 orange */
+    font-weight: 700;          /* ensures it's bold */
+    text-shadow: 0 0 2px rgba(0,0,0,0.5); /* optional: subtle shadow for readability */
+}
+
+.provide-prompt {
+    color: rgb(255, 140, 0);        /* bright orange text */
+    background: none;               /* no box background */
+    border: none;                   /* no border */
+    padding: 0;                     /* no padding */
+    margin-top: 8px;                /* spacing from button above */
+    font-size: 1.25rem;             /* slightly bigger for emphasis */
+    font-weight: 600;               /* bold enough to read easily */
+    text-align: left;               /* aligns naturally with text */
+    display: block;                 /* ensures it starts on a new line */
+    text-shadow: 0 0 2px rgba(0,0,0,0.8); /* subtle glow to pop on dark bg */
+}
+
+.disclaimer {
+    font-size: 0.85rem;        /* smaller text to fit in the window */
+    color: rgba(255, 255, 255, 0.5);  /* lighter, semi-transparent white */
+    margin-left: 15px;         /* match your other <p> indentation */
+    margin-top: 5px;           /* small spacing from previous paragraph */
+    max-width: 90%;            /* prevent it from overflowing container */
+    line-height: 1.2;          /* tighter line spacing to save space */
+    font-style: italic;        /* optional: subtle styling for a disclaimer */
+}
+
+
+.vertical-flow {
+    column-width: 180px;
+    column-gap: 40px;
+    max-height: 80%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 20px;
+    width: 100%;
+    -webkit-app-region: no-drag; /* allow mouse events */
+}
+
+.and-more {
+    color: rgb(255, 170, 50);
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+a {
+  color: #ffaa32; /* normal link color */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #ffc966; /* slightly brighter / lighter orange */
+}
+
+.vertical-flow span {
+    display: block;               /* each username takes its own line for vertical flow */
+    margin-bottom: 6px;           /* spacing between names */
+    font-size: 1rem;            /* slightly smaller than headings */
+    color: #dfdcd8;               /* matches your other text */
+    font-weight: 500;             /* slightly bolder for readability */
+    font-family: 'Montserrat', sans-serif;  /* consistent with headings */
+    cursor: default;              /* not clickable, looks like text */
+    transition: color 0.2s ease;  /* smooth hover color change */
+    word-break: break-word;       /* ensures long usernames don't overflow */
+}
+
+.vertical-flow span:hover {
+    color: #ffaa32;               /* orange highlight on hover */
+}
+
+/* Webkit browsers: Chrome, Edge, Safari */
+.vertical-flow::-webkit-scrollbar {
+    width: 8px;                   /* thin scrollbar */
+}
+
+.vertical-flow::-webkit-scrollbar-track {
+    background: rgba(36, 36, 36, 0.6); /* dark gray track */
+    border-radius: 4px;
+}
+
+.vertical-flow::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 170, 50, 0.6); /* orange thumb */
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.vertical-flow::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 170, 50, 1); /* fully bright orange on hover */
+}
+
+/* Firefox */
+.vertical-flow {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 170, 50, 0.6) rgba(36, 36, 36, 0.6);
+}
+
+.second {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    font-size: 0.75rem;
+    margin: 0 auto;
+}
+
+.bottom-section > div {
+    position: relative;
 }

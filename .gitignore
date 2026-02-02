@@ -1,2 +1,2 @@
-node_modules/
-/renderer/node_modules
+**/node_modules/
+renderer/renderer-app/sensitive

@@ -24,9 +24,9 @@ function createWindow () {
 if (isDev) {
     //load Vite dev server
     console.log("evaluated true for isDev");
-    win.loadFile("renderer/renderer-app/dist/index.html");
+    //win.loadFile("renderer/renderer-app/dist/index.html");
     //win.loadFile("renderer/index-pre-react.html");
-   // win.loadURL('http://localhost:5173');
+    win.loadURL('http://localhost:5173');
 }
 else {
     //Load the production file (index.html)
