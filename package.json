@@ -6,11 +6,33 @@
   "type": "module",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env FORCE_DEV=true electron .",
+    "build": "cd renderer/renderer-app && npx vite build && cd ../../ && electron-builder --win --x64"
   },
   "author": "Josiah Blanding",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^40.0.0"
+    "cross-env": "^10.1.0",
+    "electron": "^40.0.0",
+    "electron-builder": "^26.7.0"
+  },
+  "build": {
+    "appId": "com.josiahblanding.igmetrics",
+    "productName": "IG Metrics",
+    "win": {
+      "icon": "assets/app-icon.ico",
+      "target": "nsis",
+      "requestedExecutionLevel": "asInvoker",
+      "legalTrademarks": "IG Metrics™",
+      "executableName": "IGMetrics"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   }
 }

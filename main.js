@@ -1,7 +1,7 @@
 import path from 'path';
 import {app, BrowserWindow, ipcMain} from 'electron';
 import {fileURLToPath} from 'url';
-const isDev = !app.isPackaged;
+const isDev = process.env.FORCE_DEV === "true" 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,6 +12,7 @@ function createWindow () {
     win = new BrowserWindow({
         width: 1400,
         height: 700,
+        icon: path.join(__dirname, 'assets', 'app-icon.ico'),
         autoHideMenuBar: true,
         frame: false,
         transparent: true,
@@ -24,14 +25,12 @@ function createWindow () {
 if (isDev) {
     //load Vite dev server
     console.log("evaluated true for isDev");
-    //win.loadFile("renderer/renderer-app/dist/index.html");
-    //win.loadFile("renderer/index-pre-react.html");
     win.loadURL('http://localhost:5173');
 }
 else {
     //Load the production file (index.html)
     console.log("evaluated false for isDev");
-    win.loadFile(path.join(__dirname, 'renderer', 'renderer-app',  'index.html'));
+    win.loadFile(path.join(__dirname, 'renderer', 'renderer-app',  'dist', 'index.html'));
 }
 }
 
