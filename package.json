@@ -20,6 +20,10 @@
   "build": {
     "appId": "com.josiahblanding.igmetrics",
     "productName": "IG Metrics",
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
     "win": {
       "icon": "assets/app-icon.ico",
       "target": "nsis",

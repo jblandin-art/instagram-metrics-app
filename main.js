@@ -26,6 +26,7 @@ if (isDev) {
     //load Vite dev server
     console.log("evaluated true for isDev");
     win.loadURL('http://localhost:5173');
+    win.webContents.openDevTools();
 }
 else {
     //Load the production file (index.html)
