@@ -38,7 +38,7 @@ function MetricsOverview({
     }}>
                         {
                             getNonFollowingBack().map((user, index) => (
-                                //index == 24 ? <a href="null" className="and-more">and more... </a> : 
+                                //index == 24 ? <a href="null" className="and-more">and more... </a>: 
                                 <span key={user}>{user} <br/></span>
                             ))
                         }
