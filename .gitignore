@@ -1,6 +1,6 @@
 **/node_modules/
 renderer/renderer-app/sensitive
 assets_dev/
-dist
+/dist/
 tree.txt
 commands
