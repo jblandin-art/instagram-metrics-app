@@ -38,5 +38,13 @@
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
     }
+  },
+  "publish": {
+  "provider": "github",
+  "owner": "jblandin-art",
+  "repo": "instagram-metrics-app"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.3"
   }
 }

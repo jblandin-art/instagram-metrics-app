@@ -1,6 +1,9 @@
 import path from 'path';
-import {app, BrowserWindow, ipcMain} from 'electron';
+import {app, BrowserWindow, ipcMain, dialog } from 'electron';
 import {fileURLToPath} from 'url';
+import fs from 'fs';
+import { autoUpdater } from "electron-updater";
+
 const isDev = process.env.FORCE_DEV === "true" 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -22,6 +25,7 @@ function createWindow () {
         }
     })
 
+
 if (isDev) {
     //load Vite dev server
     console.log("evaluated true for isDev");
@@ -39,6 +43,9 @@ app.whenReady().then(() => {
 createWindow()
 })
 
+app.whenReady().then(() => {
+  autoUpdater.checkForUpdatesAndNotify();
+});
 
 ipcMain.on("minimize-window", () => {
     win.minimize();
@@ -60,3 +67,26 @@ ipcMain.on("maximize-window", () => {
 ipcMain.on("close-window", () => {
     app.quit();
 })
+
+ipcMain.on("set-ignore-mouse", (event, ignore) => {
+  win.setIgnoreMouseEvents(ignore, { forward: true });
+});
+
+ipcMain.handle("save-csv", async (event, csvData) => {
+
+    const result = await dialog.showSaveDialog({
+        title: "Save CSV",
+        defaultPath: "instagram_metrics.csv",
+        filters: [
+            { name: "CSV Files", extensions: ["csv"] }
+        ]
+    });
+
+    if (result.canceled) {
+        return { success: false };
+    }
+
+    fs.writeFileSync(result.filePath, csvData);
+
+    return { success: true };
+});

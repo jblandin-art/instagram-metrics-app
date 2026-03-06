@@ -57,7 +57,17 @@ function ImportScreen({
         <div>
         <div className="button-container">
             <p>Make sure your date range is set to <strong>"All Time"</strong> when exporting your data.</p>
-            <button className="import-button" onClick={() => document.getElementById("follower-input").click()}>Insert your data.</button>
+            <div className="drop-zone" onClick={() => document.getElementById("follower-input").click()} onDragOver={(e) => e.preventDefault()} onDrop={(e) => {
+                e.preventDefault();
+                const file = e.dataTransfer.files[0];
+                if (file) {
+                    const event = { target: { files: [file] } };
+                    handleDataImport(event);
+                }
+            }}>
+                <p>Drag and drop your JSON file here or click to browse.</p>
+            </div>
+            {/* <button className="import-button" onClick={() => document.getElementById("follower-input").click()}>Insert your data.</button> */}
             {haveFollowers || (!haveFollowers && !haveFollowing) ? null : <p className="provide-prompt">Please provide follower data.</p>}
             {haveFollowing || (!haveFollowers && !haveFollowing) ? null : <p className="provide-prompt">Please provide following data.</p>}
             {(!haveFollowers && !haveFollowing) ? <p className="provide-prompt">Please provide either a followers or following JSON file.</p> : null}

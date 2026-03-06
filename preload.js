@@ -14,3 +14,7 @@ contextBridge.exposeInMainWorld("windowControls", {
         ipcRenderer.send("is-maximized");
     }
 });
+
+contextBridge.exposeInMainWorld("electronAPI", {
+    saveCSV: (csvData) => ipcRenderer.invoke("save-csv", csvData)
+});

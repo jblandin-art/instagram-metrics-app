@@ -1,12 +1,21 @@
+import React, { useState } from "react";
 import Footer from "./Footer";
+import BottomSection from "./BottomSection";
 
 function MetricsOverview({
     followers,
     following,
     getNonFollowingBack,
     getImNonFollowingBack,
-    containerRef
+    containerRef,
+    isChart,
+    setIsChart,
+    copyToClipboard,
+    exportAsCSV
 }) {
+
+    const [copied, setCopied] = useState(false);
+    
     return (
         <>
         <div className="top-section">
@@ -23,30 +32,22 @@ function MetricsOverview({
                 <div>
                     <h2>Connection Metrics</h2>
                     <img className="line-break" src="../line.png"/>
-                    <p>{(100 - ((getNonFollowingBack().length / following.length * 100))).toFixed(0)}% of the people you follow, are following you back. ✅</p>
-                    <p className="secondary-p">You are following back {(100 - ((getImNonFollowingBack().length / followers.length * 100))).toFixed(0)}% of the people that follow you.</p>
+                    <p>{getNonFollowingBack().length} users aren't following you back.</p>
+                    <p className="secondary-p">{(((getNonFollowingBack().length / following.length * 100))).toFixed(0)}% of the people you follow.</p>
+                    <p>You have {followers.length - getImNonFollowingBack().length} mutual connections.</p>
                 </div> 
             </div>
         </div>
-        <div className="bottom-section">
-                <div>
-                    <h2>Not Following Back</h2>
-                    <p className='disclaimer second'>Deactivated accounts are included.</p>
-                    <img className="line-break" src="../line.png"/>
-                    <div className="vertical-flow" ref={containerRef} onWheel={(e) => {
-        containerRef.current.scrollLeft += e.deltaY;
-    }}>
-                        {
-                            getNonFollowingBack().map((user, index) => (
-                                //index == 24 ? <a href="null" className="and-more">and more... </a>: 
-                                <span key={user}>{user} <br/></span>
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
-    <Footer />
-    </>
+        <BottomSection 
+        copyToClipboard={copyToClipboard}
+        exportAsCSV={exportAsCSV}
+        getNonFollowingBack={getNonFollowingBack}
+        containerRef={containerRef}
+        copied={copied}
+        />
+            
+        <Footer />
+        </>
     )
 }
 

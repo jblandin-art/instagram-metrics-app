@@ -1,5 +1,5 @@
 
-function Header() {
+function Header({ haveFollowers, haveFollowing, isChart, setIsChart }) {
 
 return (
     <header>
@@ -23,6 +23,8 @@ return (
             </ul>
         </nav>
         <h1>Instagram Metrics</h1>
+        <button style={{ display: !(haveFollowers && haveFollowing) ? 'none' : 'block' }} className="chart-button" onClick={() => setIsChart(!isChart)}>{isChart ? 'Overview' : 'Chart'}</button>
+        <button style={{ display: !(haveFollowers && haveFollowing) ? 'none' : 'block' }} className="reset-button" onClick={() => window.location.reload()}>Reset Data</button>
     </header>
 )
 }
